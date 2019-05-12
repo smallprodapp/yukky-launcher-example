@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="{{ ASSET }}CSS/launcherwindow.css">
+
+    		<script src="{{ ASSET }}JS/LAUNCHER/toolbar.js"></script>
+    		<script src="{{ ASSET }}JS/LAUNCHER/main.js"></script>
+
+	</head>
+
+	<body style="position : absolute; top : 0; left : 0; right : 0; bottom : 0; margin : 0">
+
+		<div class="launcherprev center" id="window" style="background : linear-gradient({{ launcher.backcolor }}, {{ launcher.colorsec }}); position: absolute; top : 0; left : 0; right : 0; bottom : 0;">
+			
+			<nav id="nav" style="-webkit-app-region: drag; background : {{ launcher.headbarcolor }}">
+				<button type="button" onclick="reduce()"><img src="{{ ASSET }}PIC/reduce.png"></button>
+				<button type="button" onclick="quit()"><img src="{{ ASSET }}PIC/close.png"></button>
+		    </nav>
+
+		    <main id="main">
+
+		    	<img src="{{ PATH }}Datas/Launchers/{{ launcher.key }}/{{ launcher.backimg }}" alt="img" id="backimg" {% if launcher.showback == 1 %}style="display : block"{% endif %}/>
+
+		    	<div id="title-container">
+		    		<h1 id="title" style="color : {{ launcher.titlecolor }}">{{ launcher.name }}</h1>
+		    	</div>
+				<div id="logo-container">
+					<img src="{{ PATH }}Datas/Launchers/{{ launcher.key }}/{{ launcher.logoimg }}" alt="img" id="logo"/>
+				</div>
+
+				<div class="bottombar" id="button-container">
+					<h2 id="waitserver" class="">Check for updates ...</h2>
+					<h2 id="noapps" class="disable">No apps found</h2>
+
+					<button type="button" id="startbut" style="background : {{ launcher.buttoncolor }}; color : {{ launcher.buttontxtcolor }}" class="disable">Play</button>
+
+					<button type="button" id="dlbut" class="disable" style="background : {{ launcher.buttoncolor }}; color : {{ launcher.buttontxtcolor }}">Download</button>
+
+					<div id="folderselec" class="disable">
+				  		<span class="but" onclick="selectFolder()">Select Folder</span>
+				  		<strong id="folderTxt"></strong>
+					</div>
+
+					<button type="button" id="realdlbut" class="disable" style="background : {{ launcher.buttoncolor }}; color : {{ launcher.buttontxtcolor }}">Start Download</button>
+
+					<a class="disable" id="locate" onclick="locate()">Locate the game</a>
+					
+
+					<span class="disable" id="downloadProgress">
+					 	<div class="bar-back">
+					    	<div id="bar" style="width : 0%" style="background : {{ launcher.loadbarcolor }}">
+					      		<p id="bar-percent" style="color : {{ launcher.loadbartxtcolor }}">0%</p>
+					    	</div>
+					    	<p id="bar-speed">-/s</p>
+					    	<p id="bar-size">-/-</p>
+					  	</div>
+					</span>
+
+					<span class="disable" id="askkey">
+						<div>
+							<input type="text" id="i-key" placeholder="Key...">
+							<button type="button" id="keybut" style="background : {{ launcher.buttoncolor }}; color : {{ launcher.buttontxtcolor }}" class="">Continue</button>
+						</div>
+					</span>
+				</div>
+
+				<div id="padding-container"></div>
+
+		    </main>
+		</div>
+		
+	</body>
+
+</html>
+		
